@@ -1,12 +1,15 @@
 <?php 
-session_start();
-if (isset($_SESSION['username']) ) {
-  $user=$_SESSION['username'];
-  $pass=$_SESSION['pass'];
+ session_start();
+ 
+if (isset($_SESSION['username']) )
+ {
+     $user=$_SESSION['username'];
+     $pass=$_SESSION['pass'];
+     $name=$_SESSION['name'];
+     $mob=$_SESSION['mobile'];
    
 }
-
-
+ 
 ?>
 
 
@@ -22,10 +25,29 @@ if (isset($_SESSION['username']) ) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="bootstrap-social/assets/fonts/font-awesome.css">
-<link rel="stylesheet" type="text/css" href="bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-social/bootstrap-social.css">
 
 
 <script type="text/javascript">
+
+
+function emailcheck(str) {
+    if (str.length == 0) 
+    { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "gethint.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+
   
 function welcomemsg(){
     document.getElementById('signupicon').style.display="none";
@@ -44,26 +66,22 @@ function welcomemsg(){
 }
 window.addEventListener('load',welcomemsg);
 
+// email id check function during Registration 
 
 
 </script>
 
 
 <style type="text/css">
-body{
-	position: relative;
-}
+  
 	#slidebarusingbs4{
-		margin-top: 55px;
+		margin-top: 1px;
 	}
-	#mobile,#laptop,#Desktop,#Tablet{
-		margin-top: 10px;
-	}
+  #originalcontainer{
+    position: relative;
 
-.imgcontent{
-  width: 100px;
-  height: 70px;
-}
+  }
+  
 </style>
 
 
@@ -94,17 +112,16 @@ body{
       	<a class="nav-link" href="#Tablet">Tablet</a>
       </li>   
     </ul>
-  </div> 
+  
 
 
 
-  <a class="col-md-2 offset-md-1 navbar-brand " href="#">e-price.com</a> 
+  <a class="col-md-2" href="index.php" style="text-decoration: none; color: white; font-size: 30px;">e-price.com</a> 
 
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse2">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class=" collapse navbar-collapse" id="collapse2">
- <ul class="navbar-nav ml-auto offset-md-3">
+    
+
+
+ <ul class="navbar-nav ml-auto offset-md-10">
     <li class="nav-item" >
 <span  data-toggle="tooltip" data-placement="bottom" title="Registration your company"> 
       <a href="company_reg.php" class="nav-link">company</a>
@@ -132,9 +149,10 @@ body{
       <a href="#" class="nav-link" class=" dropright dropdown-toggle" data-toggle="dropdown"> <span > <i class="fa fa-cog"></i> </span> </a>
       <div class="dropdown-menu dropdown-menu-right"> 
       <h5 class="dropdown-header">welcome</h5>
-      <a href="#" class="dropdown-item">jeetendra sahu</a>
+      <a href="#" class="dropdown-item"> <?php echo $name; ?> </a>
       <a href="#" class="dropdown-item"> <?php echo $user; ?> </a>
-      <a href="#" class="dropdown-item">9644993531</a>
+      <a href="#" class="dropdown-item"> <?php echo $mob ; ?> </a>
+      <a href="logout.php" class="dropdown-item"> Logout </a>
       </div>
   </div>
 
@@ -143,7 +161,7 @@ body{
 
   
   </ul>
-</div>
+ </div>
  </nav>
 
 <!-- bootstrap madal for Registration -->
@@ -168,11 +186,14 @@ body{
             <label for="number" class="col-form-label">Mobile</label>
             <input type="text" name="number" id="number" class="form-control">
             
-          </div>
+          </div> 
+          <div id="txtHint"> </div>
           <div class="form-group">
+           
             <label for="email" class="col-form-label">E-mail</label>
-            <input type="email" name="email" id="email" class="form-control">
+            <input type="email" name="email" id="email" class="form-control" onkeyup="emailcheck(this.value)">
           </div>
+
           <div class="form-group">
             <label for="password" class="col-form-label">Password</label>
             <input type="password" name="password" id="password" class="form-control">
@@ -235,7 +256,7 @@ body{
 <!--  carousel slide bar using bootstrap -->
 <div  data-target="#originalcontainer" >
 
-<div id="home" class="container-fluid">
+<div id="home" class="">
    <div id="slidebarusingbs4" class="row carousel slide" data-ride="carousel" width="100%" height="500px">
 <div class="col-md-12">
   <div class="carousel-inner">
@@ -620,10 +641,12 @@ body{
                 </div>
                 <div class="form-group">
                   <label for="comment">Comment :</label>
-                  <textarea placeholder="Type Message Here"  class="form-control" rows="5" id="comment">                    
-                  </textarea>
+                  <textarea placeholder="Type Message Here"  class="form-control" rows="3" id="comment"></textarea>
+
                 </div>
-                  
+
+                  <input type="submit"  class="row col-md-3 btn btn-primary" style="margin-left: 50px;" name="queryform" id="queryform" value="submit">
+
                </form>
         			</div>
         		

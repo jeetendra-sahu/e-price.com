@@ -8,20 +8,16 @@ if (isset($_POST['Submit1']))
   $db=mysqli_connect("localhost","root","","sellingprice") or die("not connected to database");
 
 
- $co_reg_no=$_POST['company_reg_no'];
 
- $pname    = $_POST['pname'];
+            $con_reg_no=mysqli_real_escape_string($db,$_POST['company_reg_no']);
+            $pname=mysqli_real_escape_string($db,$_POST['pname']);
+            $pcompany=mysqli_real_escape_string($db,$_POST['pcompany']);
+            $ptype=mysqli_real_escape_string($db,$_POST['pclassi']);
+            $features=mysqli_real_escape_string($db,$_POST['Discription']);
+            $img_name=mysqli_real_escape_string($db,$_FILES['pimage']['name']);
 
- $pcompany = $_POST['pcompany'];
 
- $ptype = $_POST['ptype'];
-
- $pclassi = $_POST['pclassi'];
-
- $features = $_POST['Discription'];
- $img_name=$_FILES['pimage']['name'];
-
- $check_reg_no=0;
+     $check_reg_no=0;
 
 
  
@@ -200,6 +196,12 @@ $db=mysqli_connect("localhost","root","","sellingprice") or die("not connected t
    
 
 }
+
+
+
+
+
+
 // login data check 
 
 if(isset($_POST['login_data'])) {
@@ -213,22 +215,30 @@ $db=mysqli_connect("localhost","root","","sellingprice") or die("not connected t
     }
     else 
         $sql="SELECT * FROM register where email='$email' and password='$password'";
-        
-        if (mysqli_query($db,$sql))
+          
+        $res=mysqli_query($db,$sql);
+       if(mysqli_num_rows($res)>0)
         {
+           while ($rows= $res->fetch_assoc()) 
+           { 
+               $rows['name'];
+               $rows['mobile'];
+
                session_start();
                $_SESSION["username"] =$email;
-               $_SESSION["pass"]     = $password;
-               echo "session set";
-        }
-        else
-        {
-        	echo "not session set";
-        }
-    }
-
+               $_SESSION["pass"]  = $password;
+               $_SESSION['name']  = $rows['name'];
+               $_SESSION['mobile']=$rows['mobile'];
+              
+           } header('location:index.php');
+ 
+       }
+       else 
+       {
+        echo "user does not exist"."<br>";
+        ?>  <a href="index.php">Go To Home</a> <?php
+       }
     mysqli_close($db);
-
+    header('location:index.php');
+}
  ?>
-
-
