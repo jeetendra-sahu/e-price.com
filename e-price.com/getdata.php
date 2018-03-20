@@ -9,11 +9,12 @@ if (isset($_POST['Submit1']))
 
 
 
-            $con_reg_no=mysqli_real_escape_string($db,$_POST['company_reg_no']);
+            $co_reg_no=mysqli_real_escape_string($db,$_POST['company_reg_no']);
             $pname=mysqli_real_escape_string($db,$_POST['pname']);
             $pcompany=mysqli_real_escape_string($db,$_POST['pcompany']);
-            $ptype=mysqli_real_escape_string($db,$_POST['pclassi']);
+            $pclassi=mysqli_real_escape_string($db,$_POST['pclassi']);
             $features=mysqli_real_escape_string($db,$_POST['Discription']);
+            $ptype=mysqli_real_escape_string($db,$_POST['ptype']);
             $img_name=mysqli_real_escape_string($db,$_FILES['pimage']['name']);
 
 
@@ -100,6 +101,10 @@ if ($upload) {
 $upload=0;
 }
 
+
+
+
+
 // company data part insert 
  $company_data=0;
 if(isset($_POST['c_name']))
@@ -117,7 +122,7 @@ if(isset($_POST['c_name']))
           $c_pin=mysqli_real_escape_string($db,$_POST['c_pin']);
           $c_state=mysqli_real_escape_string($db,$_POST['c_state']);
           $rest = mysqli_real_escape_string($db,substr($c_name, 0, 2));
-          $reg_no=mysqli_real_escape_string($db,$rest.date("mjYHius"));
+          $reg_no=mysqli_real_escape_string($db,$rest.date("mjYHis"));
                  
          if (strlen($about_line)<201) {
          	

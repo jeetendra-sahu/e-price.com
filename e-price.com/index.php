@@ -9,7 +9,20 @@ if (isset($_SESSION['username']) )
      $mob=$_SESSION['mobile'];
    
 }
- 
+
+/*
+$con=mysqli_connect("localhost","root","","sellingprice") or die("not connected to database");
+$sql="SELECT * FROM product_detail where Product_type='Mobile' ";
+$result=mysqli_query($con,$sql);
+
+while (mysqli_num_rows($result)) {
+  
+ }
+
+*/
+
+
+
 ?>
 
 
@@ -292,300 +305,165 @@ window.addEventListener('load',welcomemsg);
   </a>
 </div>
 
+<br><br>
+
+
+
+
 
 
 <!-- moblie images bars-->
 
-<div class="container-fluid jumbotron">
-<div id="mobile">
- <div class="">
-  <div id="navbar-example">
-    <ul class="card-deck nav nav-tabs" role="tablist">
+<div class="container-fluid">
+
+    <ul class="">
  
-    <div class="col-md-3 card-deck"> 
-      <div class="card" style="width: 15rem;">
-        <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/6m.jpg"  alt="Card image cap">
+<?php 
+ 
+$con=mysqli_connect("localhost","root","","sellingprice") or die("not connected to database");
+$sql="SELECT * FROM product_detail where Product_type='Mobile' ";
+$result=mysqli_query($con,$sql);
+$rows=mysqli_num_rows($result);
+$r=1;
+?>
+<div class="row">
+<?php 
+
+while ($row=mysqli_fetch_assoc($result)) {
+  if ($r<5) {
+    
+  
+
+?> 
+  
+    <div class="card-deck col-md-3 "> 
+      <div class="card" style="width: 10rem;">
+        <img   src="uploaded_image/<?php echo $row['image_name']; ?>"  class="card-img-top img-thumbnail" class="imgcontent" width="200" height="150"   alt="Card image cap">
         <div class="card-body card-block">
 
-         <h4 class="card-title">Card title</h4>
-           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+         <h4 class="card-title"><?php echo $row['full_name']; ?></h4>
+           <p class="card-text"><?php echo $row['classification']."  "; ?> </p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      </div> 
-      <div class=" col-md-3 card-deck"> 
-      <div class="card" style="width: 15rem;">
-        <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/2m.jpg" alt="Card image cap">
-        <div class="card-body card-block">
-         <h4 class="card-title">Card title</h4>
-           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div> 
-      </div> 
-      <div class="col-md-3 card-deck"> 
-      <div class="card" style="width: 15rem;">
-        <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/3m.jpg" alt="Card image cap">
-        <div class="card-body card-block">
-         <h4 class="card-title">Card title</h4>
-           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div> 
-      </div> 
-      <div class="col-md-3 card-deck"> 
-      <div class="card" style="width: 15rem;">
-        <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/4m.jpg" alt="Card image cap">
-        <div class="card-body card-block">
-         <h4 class="card-title">Card title</h4>
-           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div> 
-      </div>
+      </div>  
+
+<?php  } $r++; }  ?> 
+</div>
       
     </ul>
-  </div>
-</div>
-</div>
+ 
 
 
 
 
 <!-- laptop images bar-->
-<div id="laptop" class="" >
+
+<?php 
+ 
+ 
+$sql="SELECT * FROM product_detail where Product_type='laptop' ";
+$result=mysqli_query($con,$sql);
+$rows=mysqli_num_rows($result);
+$r=1;
+?>
 <div class="row">
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/1l.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+<?php 
+while ($row=mysqli_fetch_assoc($result)) {
+  if ($r<7) {
+     
+  
+
+?> 
+  
+    <div class="col-md-4 card-deck"> 
+      <div class="card" style="width: 15rem;">
+        <img   src="uploaded_image/<?php echo $row['image_name']; ?>"  class="card-img-top img-thumbnail" class="imgcontent" width="200" height="150"   alt="Card image cap">
+        <div class="card-body card-block">
+
+         <h4 class="card-title"><?php echo $row['full_name']; ?></h4>
+           <p class="card-text"> <?php echo $row['classification']." " ; ?> </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>  
+
+<?php  }  $r++; } ?> 
 </div>
 
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/2l.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/3l.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/4l.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/5l.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/6l.png" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-</div>
-</div>
 
 
 
 
 <!-- Desktop View list  -->
-<div id="Desktop" class="">
+
+
+<?php 
+ 
+ $sql="SELECT * FROM product_detail where Product_type='Desktop' ";
+$result=mysqli_query($con,$sql);
+$rows=mysqli_num_rows($result);
+$r=1;
+?>
 <div class="row">
-<div class="col-md-4 card-deck">
-<div class="card text-center" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/d1.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
+<?php 
+while ($row=mysqli_fetch_assoc($result)) {
+  if ($r<7) {
+     
+  
 
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/d2.png" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
+?> 
+  
+    <div class="col-md-4 card-deck"> 
+      <div class="card" style="width: 15rem;">
+        <img   src="uploaded_image/<?php echo $row['image_name']; ?>"  class="card-img-top rounded" class="imgcontent" width="200" height="200"   alt="Card image cap">
+        <div class="card-body card-block">
 
+         <h4 class="card-title"><?php echo $row['full_name']; ?></h4>
+           <p class="card-text"> <?php echo $row['classification']." " ; ?> </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>  
 
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/d3.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+<?php  }  $r++; } ?> 
 </div>
-</div>
-</div>   
-<div><div>  
-
-<div class="row">
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/d4.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/d5.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/d6.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-</div>
-</div>
-
 
 
 <!-- Tablet bar images -->
 
-<div id="Tablet" class="">
+<?php 
+ 
+$con=mysqli_connect("localhost","root","","sellingprice") or die("not connected to database");
+$sql="SELECT * FROM product_detail where Product_type='tablet' ";
+$result=mysqli_query($con,$sql);
+$rows=mysqli_num_rows($result);
+$r=1;
+?>
 <div class="row">
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/t1.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+<?php 
+while ($row=mysqli_fetch_assoc($result)) {
+  if ($r<7) {
+     
+  
+
+?> 
+  
+    <div class="col-md-4 card-deck"> 
+      <div class="card" style="width: 15rem;">
+        <img   src="uploaded_image/<?php echo $row['image_name']; ?>"  class="card-img-top img-thumbnail" class="imgcontent" width="200" height="150"   alt="Card image cap">
+        <div class="card-body card-block">
+
+         <h4 class="card-title"><?php echo $row['full_name']; ?></h4>
+           <p class="card-text"> <?php echo $row['classification']." " ; ?> </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      </div>  
+
+<?php  }  $r++; } ?> 
 </div>
 
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/t2.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/t3.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-</div>
-
-
-<div class="row">
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/t4.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/t5.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-
-
-<div class="col-md-4 card-deck">
-<div class="card" style="width: 20rem;">
-  <img class="card-img-top" class="imgcontent" width="200" height="150"  src="images/t6.jpg" alt="Card image cap">
-  <div class="card-body card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
  
@@ -714,8 +592,6 @@ window.addEventListener('load',welcomemsg);
 
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

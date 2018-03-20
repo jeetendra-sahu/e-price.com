@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,7 +83,7 @@
   <div class="form-group row">
   	    <label for="classi" class="col-sm-2 col-form-label">Classification</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="classi" placeholder="Example: for mobile-->i.e-2GB RAM 8GB ROM ....." name="pclassi"></textarea>
+          <textarea maxlength="200" class="form-control" id="classi" placeholder="Example: for mobile-->i.e-2GB RAM 8GB ROM ....." name="pclassi"></textarea>
         </div>
  </div>
 
@@ -91,7 +92,7 @@
 <div class="form-group row">
         <label for="classi" class="col-sm-2 col-form-label">Features</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="features" placeholder="Write 2 to 5 line about your product" name="Discription"></textarea>
+          <textarea maxlength="200" class="form-control" id="features" placeholder="Write 2 to 5 line about your product" name="Discription"></textarea>
         </div>
  </div> 
      
