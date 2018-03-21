@@ -87,30 +87,30 @@ window.addEventListener('load',welcomemsg);
 
 <style type="text/css">
   
-	#slidebarusingbs4{
-		margin-top: 1px;
+	#slideupdown{
+		margin-top: 75px;
 	}
-  #originalcontainer{
-    position: relative;
+ 
 
-  }
-  
 </style>
 
 
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">  
-
-<nav class="navbar fixed-top navbar-expand-xl bg-danger navbar-dark" id="originalcontainer">
+<body>  
+ 
+<nav class="navbar row  navbar-expand-md fixed-top bg-danger navbar-dark" id="originalcontainer">
    
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsebar">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="collapse">
-   
-    <ul class="navbar-nav ml-left col-md-5 ">
+        
+
+ <div class="collapse navbar-collapse" id="collapsebar" style="align-content: right;">
+    <ul class="navbar-nav mr-auto my-2 my-sm-0 " >
+ 
+
     <li class="nav-item">
-        <a class="nav-link" href="#home"><i class="fa fa-home" style="font-size: 25px; padding: 0px;"></i> </a>
+        <a class="nav-link" href="#home"><i class="fa fa-home" style="font-size: 25px; padding: 0px;"></i></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#mobile">Mobile</a>
@@ -124,37 +124,32 @@ window.addEventListener('load',welcomemsg);
       <li class="nav-item">
       	<a class="nav-link" href="#Tablet">Tablet</a>
       </li>   
-    </ul>
-  
-
-
-
-  <a class="col-md-2" href="index.php" style="text-decoration: none; color: white; font-size: 30px;">e-price.com</a> 
-
-    
-
-
- <ul class="navbar-nav ml-auto offset-md-10">
+      
+ 
+ 
     <li class="nav-item" >
-<span  data-toggle="tooltip" data-placement="bottom" title="Registration your company"> 
-      <a href="company_reg.php" class="nav-link">company</a>
-</span>
+            <span  data-toggle="tooltip" data-placement="bottom" title="Registration your company"> 
+           <a href="company_reg.php" class="nav-link">company</a>
+          </span>
       </li>
+
       <li class="nav-item">
-      <a href="add_product.php" class="nav-link" title="Publish your new product">Publish product</a>
+      <a href="add_product.php" class="nav-link" title="Publish your new product">Publish-Product</a>
       </li>
 
   <!-- sign up icon -->    
- 
-<div id="signupicon" >
+    
+       <div id="signupicon" >
+        <li class="nav-item" style="display: inline-block;">
+        <a href="#" class="nav-link" title="Register as new user" data-toggle="modal" data-target="#register"><i class="fa fa-user" style="font-size: 30px; padding: 0px;"> </i> </a>
+         </li>
       <li class="nav-item" style="display: inline-block;">
-      <a href="#" class="nav-link" title="Register as new user" data-toggle="modal" data-target="#register"><i class="fa fa-user" style="font-size: 30px; padding: 0px;"> </i> </a>
-      </li>
-      <li class="nav-item" style="display: inline-block;">
-      <a href="#" class="nav-link" title="login your account" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span> <i class="fa fa-sign-in" style="font-size: 30px; padding: 0px;"></i></a>
+      <a href="#" class="nav-link" title="login your account" data-toggle="modal" data-target="#loginform"><span class="glyphicon glyphicon-log-in"></span> <i class="fa fa-sign-in" style="font-size: 30px; padding: 0px;"></i></a>
      </li>
-</div>
-   
+   </div>
+  
+ 
+
 <!-- active is session is active -->
   <div id="activesession" style="display: none;">
     <li class="nav-item ">
@@ -166,16 +161,20 @@ window.addEventListener('load',welcomemsg);
       <a href="#" class="dropdown-item"> <?php echo $user; ?> </a>
       <a href="#" class="dropdown-item"> <?php echo $mob ; ?> </a>
       <a href="logout.php" class="dropdown-item"> Logout </a>
-      </div>
-  </div>
+      </div>   </div>
+       </li>
+     </div>
+   
 
-    </li>
-  </div>
-
-  
+   
   </ul>
+
  </div>
- </nav>
+
+         <li class="nav nav-item active">
+            <a href="index.php" class="nav-link navbar-brand" > <img src="logo.png"></a>
+         </li>
+</nav>  
 
 <!-- bootstrap madal for Registration -->
 
@@ -230,7 +229,7 @@ window.addEventListener('load',welcomemsg);
 
 <!--bootstrap modal for login -->
 
-<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+<div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -253,13 +252,17 @@ window.addEventListener('load',welcomemsg);
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>     
       </div>
+
     </div>
   </div>
 </div>
 
+
+
+
+ 
 <!-- after login icon  -->
 
 
@@ -267,10 +270,10 @@ window.addEventListener('load',welcomemsg);
 
 
 <!--  carousel slide bar using bootstrap -->
-<div  data-target="#originalcontainer" >
+<div  data-target="#originalcontainer">
 
-<div id="home" class="">
-   <div id="slidebarusingbs4" class="row carousel slide" data-ride="carousel" width="100%" height="500px">
+<div id="home">
+   <div id="slideupdown" class="row carousel slide" data-ride="carousel" width="100%" height="500px">
 <div class="col-md-12">
   <div class="carousel-inner">
     <div class="carousel-item">
@@ -295,11 +298,11 @@ window.addEventListener('load',welcomemsg);
   </div>
  </div>
 
- <a class="carousel-control-prev" href="#slidebarusingbs4" role="button" data-slide="prev">
+ <a class="carousel-control-prev" href="#slideupdown" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#slidebarusingbs4" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#slideupdown" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -316,7 +319,7 @@ window.addEventListener('load',welcomemsg);
 
 <div class="container-fluid">
 
-    <ul class="">
+    <ul class="" id="mobile">
  
 <?php 
  
@@ -343,7 +346,7 @@ while ($row=mysqli_fetch_assoc($result)) {
 
          <h4 class="card-title"><?php echo $row['full_name']; ?></h4>
            <p class="card-text"><?php echo $row['classification']."  "; ?> </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">View Detail</a>
         </div>
       </div>
       </div>  
@@ -358,7 +361,7 @@ while ($row=mysqli_fetch_assoc($result)) {
 
 
 <!-- laptop images bar-->
-
+<ul id="laptop">
 <?php 
  
  
@@ -383,21 +386,20 @@ while ($row=mysqli_fetch_assoc($result)) {
 
          <h4 class="card-title"><?php echo $row['full_name']; ?></h4>
            <p class="card-text"> <?php echo $row['classification']." " ; ?> </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">View Detail</a>
         </div>
       </div>
       </div>  
 
 <?php  }  $r++; } ?> 
 </div>
-
-
+</ul>
 
 
 
 <!-- Desktop View list  -->
 
-
+<ul id="Desktop">  
 <?php 
  
  $sql="SELECT * FROM product_detail where Product_type='Desktop' ";
@@ -421,7 +423,7 @@ while ($row=mysqli_fetch_assoc($result)) {
 
          <h4 class="card-title"><?php echo $row['full_name']; ?></h4>
            <p class="card-text"> <?php echo $row['classification']." " ; ?> </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">View Detail</a>
         </div>
       </div>
       </div>  
@@ -429,9 +431,9 @@ while ($row=mysqli_fetch_assoc($result)) {
 <?php  }  $r++; } ?> 
 </div>
 
-
+</ul>
 <!-- Tablet bar images -->
-
+<ul id="Tablet"> 
 <?php 
  
 $con=mysqli_connect("localhost","root","","sellingprice") or die("not connected to database");
@@ -456,7 +458,7 @@ while ($row=mysqli_fetch_assoc($result)) {
 
          <h4 class="card-title"><?php echo $row['full_name']; ?></h4>
            <p class="card-text"> <?php echo $row['classification']." " ; ?> </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary">View Detail</a>
         </div>
       </div>
       </div>  
@@ -466,8 +468,7 @@ while ($row=mysqli_fetch_assoc($result)) {
 
 </div>
 </div>
- 
-
+</ul>
 
 <!-- yooutube videos add our website  -->
 <footer class="footer bg-success">
@@ -531,14 +532,14 @@ while ($row=mysqli_fetch_assoc($result)) {
 
             <div class="col-md-3 social-buttons" >
               <h4 class="text-center"><u>Connect With Us</u></h4>
-               <a class="btn btn-block btn-social btn-facebook">
-              <span class="fa fa-facebook"></span> Sign in with Facebook
+               <a href="https://www.facebook.com/Er.jeetendra.modi" class="btn btn-block btn-social btn-facebook" >
+              <span class="fa fa-facebook"></span> Follow on Facebook
             </a>
-            <a class="btn btn-block btn-social btn-twitter">
-            <span class="fa fa-twitter"></span> Sign in with Twitter
+            <a href="https://twitter.com/jeetumodisahu" class="btn btn-block btn-social btn-twitter" >
+            <span class="fa fa-twitter"></span> follow on Twitter
           </a>
           <a class="btn btn-block btn-social btn-instagram">
-            <span class="fa fa-instagram"></span> Sign in with Instagram
+            <span class="fa fa-instagram"></span> Follow on Instagram
           </a>
            <a class="btn btn-block btn-social btn-linkedin">
             <span class="fa fa-linkedin"></span> Sign in with LinkedIn
